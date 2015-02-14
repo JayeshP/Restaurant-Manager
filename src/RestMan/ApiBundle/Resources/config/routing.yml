@@ -1,0 +1,3 @@
+rest_man_api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: RestManApiBundle:Default:index }
