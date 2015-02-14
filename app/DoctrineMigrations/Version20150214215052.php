@@ -60,7 +60,7 @@ class Version20150214215052 extends AbstractMigration
             INDEX IDX_AB08B525B1E7706E (restaurant_id),
             PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
 
-        $this->addSql('CREATE TABLE restaurant (id INT AUTO_INCREMENT NOT NULL,
+        $this->addSql('CREATE TABLE restaurants (id INT AUTO_INCREMENT NOT NULL,
             name VARCHAR(255) NOT NULL,
             address VARCHAR(255) NOT NULL,
             longitude INT NOT NULL,
@@ -73,22 +73,22 @@ class Version20150214215052 extends AbstractMigration
             PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
 
         $this->addSql('ALTER TABLE restaurant_dishes 
-            ADD CONSTRAINT FK_A9D32CACE692CC50 FOREIGN KEY (restaurant_id) REFERENCES restaurant (id)');
+            ADD CONSTRAINT FK_A9D32CACE692CC50 FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)');
 
         $this->addSql('ALTER TABLE restaurant_details
-            ADD CONSTRAINT FK_B86D57FFB1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurant (id)');
+            ADD CONSTRAINT FK_B86D57FFB1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)');
 
         $this->addSql('ALTER TABLE restaurant_ratings
             ADD CONSTRAINT FK_4FD5BBCA76ED395 FOREIGN KEY (user_id) REFERENCES user_profiles (id)');
 
         $this->addSql('ALTER TABLE restaurant_ratings
-            ADD CONSTRAINT FK_4FD5BBCB1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurant (id)');
+            ADD CONSTRAINT FK_4FD5BBCB1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)');
 
         $this->addSql('ALTER TABLE user_likes
             ADD CONSTRAINT FK_AB08B5256B9DD454 FOREIGN KEY (user_profile_id) REFERENCES user_profiles (id)');
 
         $this->addSql('ALTER TABLE user_likes
-            ADD CONSTRAINT FK_AB08B525B1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurant (id)');
+            ADD CONSTRAINT FK_AB08B525B1E7706E FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)');
     }
 
     public function down(Schema $schema)
@@ -107,6 +107,6 @@ class Version20150214215052 extends AbstractMigration
         $this->addSql('DROP TABLE restaurant_ratings');
         $this->addSql('DROP TABLE user_profiles');
         $this->addSql('DROP TABLE user_likes');
-        $this->addSql('DROP TABLE restaurant');
+        $this->addSql('DROP TABLE restaurants');
     }
 }

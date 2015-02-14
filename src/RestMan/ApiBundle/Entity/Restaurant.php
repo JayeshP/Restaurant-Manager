@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Restaurant
  *
- * @ORM\Table(name="restaurant")
- * @ORM\Entity
+ * @ORM\Table(name="restaurants")
+ * @ORM\Entity(repositoryClass="RestMan\ApiBundle\Entity\RestaurantRepository")
  */
 class Restaurant
 {
@@ -300,5 +300,15 @@ class Restaurant
     public function getRating()
     {
         return $this->rating;
+    }
+
+    public function serialise()
+    {
+        return array_merge(array(
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'rating' => $this->getRating(),
+            'address' => $this->getAddress,
+        ), parent::serialise());
     }
 }
