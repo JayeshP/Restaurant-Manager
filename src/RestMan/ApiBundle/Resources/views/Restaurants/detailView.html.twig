@@ -1,7 +1,21 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}RestManApiBundle:Restaurants:getRestaurants{% endblock %}
+{% block title %}{{ restaurant.name }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Restaurants:getRestaurants page</h1>
+<br>{{ restaurant.name }}</br>
+<br>{{ restaurant.address }}</br>
+{% if restaurant.longitude %}
+	<br>{{ restaurant.longitude }}</br>
+{% endif %}
+{% if restaurant.lattitude %}
+	<br>{{ restaurant.lattitude }}</br>
+{% endif %}
+<br>{{ restaurant.city }}</br>
+<br>{{ restaurant.country }}</br>
+<br>{{ restaurant.locality }}</br>
+
+<button name="button" type="button">Like</button>
+<button name="button" type="button">Share</button>
+<a href="{{ path('_get_restaurant_pdf', {'restaurantId': restaurant.id, '_format': 'pdf'})}}"> Download </a>
 {% endblock %}
