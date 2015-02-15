@@ -3,17 +3,18 @@
 {% block title %}{{ restaurant.name }}{% endblock %}
 
 {% block body %}
-<br>{{ restaurant.name }}</br>
-<br>{{ restaurant.address }}</br>
+Total Likes - </br>
+<br><h3>{{ restaurant.name }}</h3></br>
+<br>Address -{{ restaurant.address }}</br>
 {% if restaurant.longitude %}
-	<br>{{ restaurant.longitude }}</br>
+	<br>Longitude - {{ restaurant.longitude }}</br>
 {% endif %}
 {% if restaurant.lattitude %}
-	<br>{{ restaurant.lattitude }}</br>
+	<br>Lattitude - {{ restaurant.lattitude }}</br>
 {% endif %}
-<br>{{ restaurant.city }}</br>
-<br>{{ restaurant.country }}</br>
-<br>{{ restaurant.locality }}</br>
+<br>Locality - {{ restaurant.locality }}</br>
+<br>City - {{ restaurant.city }}</br>
+<br>Country - {{ restaurant.country }}</br>
 
 <button name="button" type="button">Like</button>
 <button name="button" type="button">Share</button>
