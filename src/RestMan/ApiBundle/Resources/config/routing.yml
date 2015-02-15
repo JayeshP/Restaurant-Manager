@@ -1,8 +1,11 @@
-rest_man_api_homepage:
-    path:     /hello/{name}
+_welcome:
+    pattern:  /
     defaults: { _controller: RestManApiBundle:Default:index }
+
 
 restaurants:
     resource: "@RestManApiBundle/Controller/RestaurantsController.php"
     type:     annotation
-    prefix:   /restaurants
+    defaults: {_format: html}
+    requirements:
+        _format: json|html|pdf

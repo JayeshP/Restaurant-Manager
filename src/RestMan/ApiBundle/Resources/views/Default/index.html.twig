@@ -1,1 +1,7 @@
-Hello {{ name }}!
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Welcome to Restaurant Management
+    </br>
+    <a href="{{ path('_get_restaurants')}}"> View All Restaurants </a>
+{% endblock %}
